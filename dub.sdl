@@ -1,0 +1,23 @@
+name "box"
+
+description "Event driven network concurrency framework based on manual memory management and betterC for D Programming Language"
+license "MIT"
+copyright "Copyright © 2018 Chang Loong"
+authors "Chang Loong"
+
+dependency ":core" version="*"
+targetName "box"
+
+buildTypes {
+	release {
+		buildOptions  "noBoundsCheck" "optimize" "inline" 
+	}
+}
+
+subPackage {
+	name "core"
+	targetType "library"
+	dependency "libuv" version="*"
+	sourcePaths "source/box/core"
+	sourcePaths "source/box/container"
+}
